@@ -14,6 +14,12 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
+
+  if(a <= 0 || b <= 0 || c <= 0)
+  	raise TriangleError.new("Side lengths cannot be zero")
+  elsif(((a+b) <= c ) || ((b+c) <= a) || ((c+a) <= b))
+  	raise TriangleError.new("Sum of any two sides must be greater than third")
+  end
   if(a == b && b == c)
   	return :equilateral
   elsif(a == b || b == c || a == c )
